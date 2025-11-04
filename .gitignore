@@ -2,13 +2,13 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-[Ll]ibrary
-[Tt]emp
-[Oo]bj
-[Bb]uild
-[Bb]uilds
-[Ll]ogs
-[Mm]emoryCaptures
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
@@ -58,3 +58,18 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+My project/Assets\Plugins\PrefabSpawner2D\Editor\Data\SaveData.txt
+My project/Recordings/Image Sequence_021_0001.png
+My project/Recordings/Image Sequence_020_0001.png
+My project/Recordings/Image Sequence_019_0001.png
+My project/Recordings/Image Sequence_018_0001.png
+My project/Recordings/Image Sequence_017_0001.png
+My project/Recordings/Image Sequence_016_0001.png
+My project/Recordings/Image Sequence_015_0001.png
+My project/Recordings/Image Sequence_014_0001.png
+My project/Recordings/Image Sequence_013_0001.png
+My project/Recordings/Image Sequence_012_0001.png
+My project/Recordings/Image Sequence_011_0001.png
+My project/Recordings/Image Sequence_006_0001.png
+My project/Recordings/Image Sequence_005_0001.png
+My project/Assets\Plugins\PrefabSpawner2D\Editor\Data\SaveData.txt
