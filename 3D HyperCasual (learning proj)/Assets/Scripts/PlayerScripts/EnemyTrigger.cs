@@ -19,7 +19,6 @@ public class EnemyTrigger : MonoBehaviour
         if (collidersInZone.Contains(other))
         {
             collidersInZone.Remove(other);
-            _teamController?.CheckShooting();
         }
     }
     private void HandleEnemiesInZone()
