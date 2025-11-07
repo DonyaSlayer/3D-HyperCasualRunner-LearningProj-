@@ -40,7 +40,7 @@ public class Chunk : MonoBehaviour
     }
 
 
-    //ЗАЛИШИТИ
+    
     private void SpawnCoins()
     {
         if (_coinSpawnPoints == null || _coinSpawnPoints.Length == 0 || _coinPrefab == null)

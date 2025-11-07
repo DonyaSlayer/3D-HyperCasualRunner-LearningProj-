@@ -546,6 +546,10 @@ PrefabInstance:
       propertyPath: _horizontalLimit
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3758024822092180933, guid: 1409cc2f8e1ab1e45b22ab1686021c7a, type: 3}
+      propertyPath: _horizontalSpeedPointer
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5302767598799427771, guid: 1409cc2f8e1ab1e45b22ab1686021c7a, type: 3}
       propertyPath: m_LocalPosition.z
       value: -2
