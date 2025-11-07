@@ -184,7 +184,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4, y: 2, z: 13}
+  m_Size: {x: 8, y: 2, z: 13}
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &77488490444731240
 MonoBehaviour:
@@ -212,6 +212,7 @@ MonoBehaviour:
   - {fileID: 7122820422276098946, guid: e20e11625a499594590add57071c3268, type: 3}
   - {fileID: 8562345192605078703, guid: 4d4357c03591d4f4d9e613c946be51c0, type: 3}
   - {fileID: 334877847565899276, guid: 9802f33b1e76e744dbc2afd5540d75b3, type: 3}
+  - {fileID: 6637362599902266266, guid: b9b72cf104ae948469b03bfb5a336a49, type: 3}
   _coinPrefab: {fileID: 5474534040632158410, guid: 84884b04a6d0ced49b37aad59fe6ff1a, type: 3}
   _enemiesMinCount: 3
   _enemiesMaxCount: 8

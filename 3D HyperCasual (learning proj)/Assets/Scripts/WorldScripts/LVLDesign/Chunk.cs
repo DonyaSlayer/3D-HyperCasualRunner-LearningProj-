@@ -22,7 +22,7 @@ public class Chunk : MonoBehaviour
     {
         Transform randomPoint = _pointsToSpawn[Random.Range(0, _pointsToSpawn.Length)]; 
         GameObject randomPrefab = _prefabsToSpawn[Random.Range(0, _prefabsToSpawn.Length)]; 
-        if (randomPrefab.gameObject.tag == "Enemy") 
+        if (randomPrefab.gameObject.tag == "Enemy"|| randomPrefab.gameObject.tag == "Shooting Enemy") 
         { 
             StartCoroutine(EnemySpawnCoroutine(randomPrefab, randomPoint)); 
         } 

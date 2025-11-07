@@ -6,7 +6,6 @@ public class EnemyShootingController : MonoBehaviour
     [SerializeField] private float _reloadingTime;
     public GameObject bulletPrefab;
     [SerializeField] private Transform _firingPoint;
-
     private Coroutine _shootingTimer;
 
     public void StartShooting()

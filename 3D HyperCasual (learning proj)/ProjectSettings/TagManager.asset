@@ -10,6 +10,7 @@ TagManager:
   - BlueBox
   - GreenBox
   - Arch
+  - Shooting Enemy
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Team
   - BulletBox
   - Coin
-  - 
+  - PlayerTrigger
   - 
   - 
   - 
