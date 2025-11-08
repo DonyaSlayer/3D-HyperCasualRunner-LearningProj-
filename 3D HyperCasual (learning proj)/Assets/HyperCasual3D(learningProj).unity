@@ -576,7 +576,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7496063073361560354, guid: 1409cc2f8e1ab1e45b22ab1686021c7a, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7970424513155618719, guid: 1409cc2f8e1ab1e45b22ab1686021c7a, type: 3}
       propertyPath: m_LocalPosition.z
