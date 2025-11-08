@@ -12,7 +12,7 @@ public class EnemyBullet : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        transform.position += transform.position * _flySpeed;
+        transform.Translate(Vector3.forward * _flySpeed * Time.fixedDeltaTime);
     }
 
     private void OnTriggerEnter(Collider other)

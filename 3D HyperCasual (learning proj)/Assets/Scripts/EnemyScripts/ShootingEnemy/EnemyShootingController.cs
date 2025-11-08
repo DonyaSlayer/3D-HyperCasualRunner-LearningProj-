@@ -7,11 +7,13 @@ public class EnemyShootingController : MonoBehaviour
     public GameObject bulletPrefab;
     [SerializeField] private Transform _firingPoint;
     private Coroutine _shootingTimer;
+    [SerializeField] private Animator _animator;
 
     public void StartShooting()
     {
         if (_shootingTimer != null) return;
         _shootingTimer = StartCoroutine(ShootingTimer());
+        _animator.SetBool("IsShooting", true);
     }
     public void StopShooting()
     {
@@ -19,13 +21,14 @@ public class EnemyShootingController : MonoBehaviour
 
         StopCoroutine(_shootingTimer);
         _shootingTimer = null;
+        _animator.SetBool("IsShooting", false);
     }
 
     private IEnumerator ShootingTimer()
     {
         while (true)
         {
-            Instantiate(bulletPrefab, _firingPoint.position, Quaternion.identity, null);
+            Instantiate(bulletPrefab, _firingPoint.position, _firingPoint.rotation);
             yield return new WaitForSeconds(_reloadingTime);
         }
     }
