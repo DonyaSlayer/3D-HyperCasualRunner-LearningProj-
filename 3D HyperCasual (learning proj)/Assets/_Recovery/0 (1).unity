@@ -225,7 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChunkSpawner
   _chunkPrefab: {fileID: 6978314396396716411, guid: 10790662e1ec9b74d8d6ee860c788e4c, type: 3}
   chunksCountOnStart: 10
-  chunkLenght: 6
+  chunkLenght: 12
   initialEmptyChunkCount: 12
   totalChunksSpawned: 0
   currentWave: 1

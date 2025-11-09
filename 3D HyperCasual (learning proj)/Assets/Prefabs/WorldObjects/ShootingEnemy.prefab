@@ -260,7 +260,7 @@ MonoBehaviour:
   _health: 50
   _animator: {fileID: 2403245999082506049}
   _isDead: 0
-  _deathDelay: 0.2
+  _deathDelay: 2
   _coinPrefab: {fileID: 5474534040632158410, guid: 84884b04a6d0ced49b37aad59fe6ff1a, type: 3}
   _renderer: {fileID: 1422488326952237771}
   _damageColor: {fileID: 2100000, guid: c97455d067a3e074d826cef92712af08, type: 2}
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a684a03f4c6810429d047c6829a1247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyShootingController
-  _reloadingTime: 1
+  _reloadingTime: 2
   bulletPrefab: {fileID: 2116607284053190100, guid: de4b1dc398ca9324cbe0ae806bc4dfb4, type: 3}
   _firingPoint: {fileID: 5340425208507607309}
   _animator: {fileID: 2403245999082506049}

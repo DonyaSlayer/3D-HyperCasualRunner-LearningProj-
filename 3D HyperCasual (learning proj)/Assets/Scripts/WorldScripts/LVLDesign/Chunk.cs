@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 public enum SpawnType { Enemy, BuffOrDebuff }
 
@@ -30,7 +31,9 @@ public class Chunk : MonoBehaviour
     //=======Void for Inicialization of TRANSFORMS to spawn=======
     private void InitializeSpawnPoints()
     {
-        _pointsToSpawn = GetComponentsInChildren<Transform>();
+        _pointsToSpawn = GetComponentsInChildren<Transform>()
+            .Where(t => t != transform) 
+            .ToArray();
     }
 
     //=======Void for spawning ALL OF OBJECTS (enemies, arches, boxes). Realized by 50/50 chaces=======
@@ -41,7 +44,20 @@ public class Chunk : MonoBehaviour
             return;
         }
         Transform randomPoint = _pointsToSpawn[Random.Range(0, _pointsToSpawn.Length)];
-        SpawnType type = (Random.Range(0, 2) == 0) ? SpawnType.Enemy : SpawnType.BuffOrDebuff;
+
+        //=======Checking of possibility to spawn arches or boxes=======
+        bool canSpawnBuff = chunkSpawner.CanSpawnArch() || chunkSpawner.CanSpawnBox();
+        SpawnType type;
+        if (canSpawnBuff)
+        {
+            type = (Random.Range(0, 2) == 0) ? SpawnType.Enemy : SpawnType.BuffOrDebuff;
+        }
+        else
+        {
+            type = SpawnType.Enemy;
+        }
+
+
         switch (type)
         {
             case SpawnType.Enemy:
