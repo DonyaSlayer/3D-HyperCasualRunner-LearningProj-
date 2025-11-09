@@ -97,7 +97,7 @@ public class TeamController : MonoBehaviour
             _playersShootingController.StopShooting();
         }
     }
-    public void SetBullets (GameObject newBullet, float timer)
+    public void SetBullets (GameObject newBullet, float timer, string bulletType)
     {
         bulletCurrentPrefab = newBullet;
         SetBulletToTeam();
@@ -106,7 +106,10 @@ public class TeamController : MonoBehaviour
             StopCoroutine(_bulletsTimer);
         }
         _bulletsTimer = StartCoroutine(BulletTimer(timer));
-        
+        if (UIManager.Instance != null)
+        {
+            UIManager.Instance.StartBoxBuffTimer(timer, bulletType);
+        }
     }
     IEnumerator BulletTimer(float timer) 
     {

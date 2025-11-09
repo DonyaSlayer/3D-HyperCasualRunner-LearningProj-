@@ -242,6 +242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BulletBox
   _timer: 5
   _bulletPrefab: {fileID: 2116607284053190100, guid: 3284139d7a9172a418e4797679c17cc0, type: 3}
+  bulletType: Blue
 --- !u!65 &9139777258600244341
 BoxCollider:
   m_ObjectHideFlags: 0

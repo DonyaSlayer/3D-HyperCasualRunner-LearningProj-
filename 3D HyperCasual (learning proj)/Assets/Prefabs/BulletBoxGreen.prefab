@@ -420,6 +420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BulletBox
   _timer: 5
   _bulletPrefab: {fileID: 2116607284053190100, guid: 992e79129183fb04596974ca763aa67f, type: 3}
+  bulletType: Green
 --- !u!65 &6878334103185941987
 BoxCollider:
   m_ObjectHideFlags: 0
