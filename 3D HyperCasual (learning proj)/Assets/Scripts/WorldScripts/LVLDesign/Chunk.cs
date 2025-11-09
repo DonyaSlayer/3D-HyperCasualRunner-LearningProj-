@@ -114,7 +114,9 @@ public class Chunk : MonoBehaviour
         {
             if (chunkSpawner.CanSpawnBox())
             {
-                Instantiate(prefab, spawnPoint.position, spawnPoint.rotation, transform);
+                Vector3 spawnPosition = spawnPoint.position + Vector3.down * 0.5f;
+                Quaternion spawnRotation = Quaternion.Euler(0, 90f, 0);
+                Instantiate(prefab, spawnPosition, spawnRotation, transform);
                 chunkSpawner.IncrementBoxCount();
             }
         }

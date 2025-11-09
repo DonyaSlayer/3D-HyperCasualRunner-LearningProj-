@@ -66,6 +66,11 @@ public class Coin : MonoBehaviour
             if (TeamController.instance != null)
             {
                 TeamController.instance.coinCount += 1;
+                int currentCoinCount = TeamController.instance.coinCount;
+                if (UIManager.Instance != null)
+                {
+                    UIManager.Instance.UpdateCoinCount(currentCoinCount);
+                }
             }
             else
             {

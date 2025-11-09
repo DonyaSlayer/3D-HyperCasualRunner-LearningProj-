@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using TMPro;
 
 public class TeamController : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class TeamController : MonoBehaviour
     public GameObject bulletDefaultPrefab;
     public static TeamController instance;
     private Coroutine _bulletsTimer;
+
 
     [Header("Team Variables")]
     [SerializeField] private Transform _pointsParent;
@@ -71,7 +73,7 @@ public class TeamController : MonoBehaviour
     {
         if (soldiers == null || soldiers.Count == 0)
         {
-            Debug.LogWarning("⚠️ RemoveSoldier() called, but no soldiers left in the list!");
+            Debug.LogWarning("RemoveSoldier() called, but no soldiers left in the list!");
             return;
         }
         Destroy(soldiers[soldiers.Count - 1].gameObject); 

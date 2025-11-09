@@ -61,9 +61,12 @@ public class ChunkSpawner : MonoBehaviour
         if (waveProgressCount > 0 && (waveProgressCount / _chunksPerWave) >= currentWave)
         {
             currentWave++;
+            if (UIManager.Instance != null)
+            {
+                UIManager.Instance.UpdateWaveCount(currentWave);
+            }
             _currentWaveArchesCount = 0;
             _currentWaveBoxesCount = 0;
-            Debug.Log($"Wave {currentWave - 1} completed! Starting Wave {currentWave}!");
         }
     }
 
