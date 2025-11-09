@@ -13,12 +13,6 @@ public class ArchController : MonoBehaviour
     private Coroutine _archActivatedDelay;
     private Arch _activatedArch;
 
-
-    private void Start()
-    {
-        ArchTargetChoosing();
-    }
-
     public void ArchTargetChoosing()
     {
         int random = Random.Range(0, 3);
@@ -60,8 +54,6 @@ public class ArchController : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
 
         TeamController.instance.ChangeSoldiersCount(_activatedArch.soldiers);
-
-        //other.GetComponent<TeamController>().AddSoldier();
 
 
         foreach (GameObject arch in arches)

@@ -7,6 +7,7 @@ public class ChunkSpawner : MonoBehaviour
     [SerializeField] private GameObject _chunkPrefab; 
     public int chunksCountOnStart; 
     public float chunkLenght;
+    public int initialEmptyChunkCount = 20;
 
     [Header("Wave Control")]
     [Tooltip("Загальна кількість чанків, що з'явилися")]
@@ -15,6 +16,7 @@ public class ChunkSpawner : MonoBehaviour
     public int currentWave = 1;
     [Tooltip("Чанків між хвилями. Після досягнення, хвиля збільшується.")]
     public int _chunksPerWave = 10;
+    public int totalChunksCreated = 0;
 
 
     [Header("Wave Item Limits")]
@@ -52,11 +54,10 @@ public class ChunkSpawner : MonoBehaviour
     {
         SpawnChunk(currentChunk.transform.position + (Vector3.forward * chunksCountOnStart * chunkLenght));
         totalChunksSpawned++;
-        if (totalChunksSpawned > 0 && (totalChunksSpawned / _chunksPerWave) >= currentWave)
+        int waveProgressCount = totalChunksSpawned - initialEmptyChunkCount;
+        if (waveProgressCount > 0 && (waveProgressCount / _chunksPerWave) >= currentWave)
         {
             currentWave++;
-            _currentWaveArchesCount = 0;
-            _currentWaveBoxesCount = 0;
             Debug.Log($"Wave {currentWave - 1} completed! Starting Wave {currentWave}!");
         }
     }
@@ -83,5 +84,6 @@ public class ChunkSpawner : MonoBehaviour
     {
         Chunk newChunk = Instantiate(_chunkPrefab, spawnPosition, Quaternion.identity, transform).GetComponent<Chunk>();
         newChunk.chunkSpawner = this;
+        totalChunksCreated++;
     }
 }
