@@ -23,6 +23,8 @@ public class Arch: MonoBehaviour
         soldiers = GetRandomSoldiers();
         RefreshVisual();
     }
+
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Player"))

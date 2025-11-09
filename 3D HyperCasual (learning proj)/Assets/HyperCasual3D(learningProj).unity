@@ -237,7 +237,7 @@ MonoBehaviour:
   - {fileID: 7122820422276098946, guid: e20e11625a499594590add57071c3268, type: 3}
   _shootingEnemyPrefabs:
   - {fileID: 6637362599902266266, guid: b9b72cf104ae948469b03bfb5a336a49, type: 3}
-  _shootingEnemyStartWave: 10
+  _shootingEnemyStartWave: 5
 --- !u!4 &407731691
 Transform:
   m_ObjectHideFlags: 0

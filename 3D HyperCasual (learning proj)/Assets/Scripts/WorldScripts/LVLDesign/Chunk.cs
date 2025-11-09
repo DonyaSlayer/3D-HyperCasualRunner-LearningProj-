@@ -16,6 +16,7 @@ public class Chunk : MonoBehaviour
     [SerializeField] private int _enemiesBaseMaxCount = 9;
     [SerializeField] private float _enemySpawnTimer;
 
+    //=======Inicialization of TRANSFORMS to spawn if they are nulls + calling the main spawning methods=======
     private void Start()
     {
         if (_pointsToSpawn == null || _pointsToSpawn.Length == 0)
@@ -25,10 +26,14 @@ public class Chunk : MonoBehaviour
         SpawnObjectsInChunk();
         SpawnCoins(); 
     }
+
+    //=======Void for Inicialization of TRANSFORMS to spawn=======
     private void InitializeSpawnPoints()
     {
         _pointsToSpawn = GetComponentsInChildren<Transform>();
     }
+
+    //=======Void for spawning ALL OF OBJECTS (enemies, arches, boxes). Realized by 50/50 chaces=======
     private void SpawnObjectsInChunk()
     {
         if (chunkSpawner.totalChunksCreated <= chunkSpawner.initialEmptyChunkCount)
@@ -51,14 +56,9 @@ public class Chunk : MonoBehaviour
                 break;
         }
     }
-    private SpawnType DetermineSpawnType(GameObject prefab)
-    {
-        if (prefab.CompareTag("Enemy") || prefab.CompareTag("Shooting Enemy"))
-        {
-            return SpawnType.Enemy;
-        }
-        return SpawnType.BuffOrDebuff;
-    }
+
+
+    //=======Logic of enemy spawn (realization through the getters in ChunkSpawner)=======
     private void SpawnEnemyLogic(Transform spawnPoint)
     {
         GameObject[] availableEnemies;
@@ -80,6 +80,8 @@ public class Chunk : MonoBehaviour
         StartCoroutine(EnemySpawnCoroutine(enemyToSpawn, spawnPoint, enemiesMaxCount));
     }
 
+
+    //=======Spawn logic of Archs and Boxes (realization through the getters + voids in ChunkSpawner)=======
     private void SpawnBuffOrDebuffLogic(GameObject prefab, Transform spawnPoint)
     {
         if (prefab.CompareTag("Arch"))
@@ -102,6 +104,7 @@ public class Chunk : MonoBehaviour
         }
     }
 
+    //=======Spawn logic of Coins=======
     private void SpawnCoins()
     {
         if (_coinSpawnPoints == null || _coinSpawnPoints.Length == 0 || _coinPrefab == null)
@@ -114,6 +117,8 @@ public class Chunk : MonoBehaviour
         }
     }
 
+
+    //=======Coroutine for spawning Enemies and spawn delay beetwen the spawns(also here realized the delay for empty chunks)=======
     IEnumerator EnemySpawnCoroutine(GameObject randomPrefab, Transform randomPoint, int enemiesMaxCount)
     {
         int randomCount = Random.Range(_enemiesBaseMinCount, enemiesMaxCount);
@@ -128,6 +133,7 @@ public class Chunk : MonoBehaviour
             yield return new WaitForSeconds(_enemySpawnTimer);
         }
     }
+
 
     public void OnCollisionEnter(Collision collision)
     {

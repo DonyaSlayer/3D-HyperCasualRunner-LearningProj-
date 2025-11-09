@@ -4,43 +4,44 @@ public class ChunkSpawner : MonoBehaviour
 {
 
     [Header("Chunk Settings")]
+
     [SerializeField] private GameObject _chunkPrefab; 
     public int chunksCountOnStart; 
     public float chunkLenght;
-    public int initialEmptyChunkCount = 20;
+    public int initialEmptyChunkCount = 15; //=======Empty chunks on the start=======
 
     [Header("Wave Control")]
-    [Tooltip("Загальна кількість чанків, що з'явилися")]
+    [Tooltip("Total chunks that has spawned or created count/current wave count/ chunks per wave count")]
+
     public int totalChunksSpawned = 0; 
-    [Tooltip("Поточна хвиля ворогів")]
     public int currentWave = 1;
-    [Tooltip("Чанків між хвилями. Після досягнення, хвиля збільшується.")]
     public int _chunksPerWave = 10;
     public int totalChunksCreated = 0;
 
 
     [Header("Wave Item Limits")]
-    [Tooltip("Максимальна кількість арок, які можуть з'явитися в межах однієї хвилі.")]
-    [SerializeField] private int _waveMaxArches = 5; 
-    [Tooltip("Максимальна кількість ящиків, які можуть з'явитися в межах однієї хвилі.")]
+    [Tooltip("Max arches and boxes, that can be created per wave")]
+
+    [SerializeField] private int _waveMaxArches = 5;
     [SerializeField] private int _waveMaxBoxes = 3;
 
     private int _currentWaveArchesCount = 0;
     private int _currentWaveBoxesCount = 0;
 
     [Header("Enemy Prefabs")]
-    [Tooltip("Префаби ЗВИЧАЙНИХ (ближній бій) ворогів.")]
+    [Tooltip("Prefabs of shooting and default enemies / wave for shooting enemies spawning from (with the getters for them)")]
+
     [SerializeField] private GameObject[] _meleeEnemyPrefabs;
-    [Tooltip("Префаби СТРІЛЯЮЧИХ (дальній бій) ворогів.")]
     [SerializeField] private GameObject[] _shootingEnemyPrefabs; 
-    [Tooltip("Хвиля, з якої починають спавнитися стріляючі вороги.")]
-    [SerializeField] private int _shootingEnemyStartWave = 10; 
+    [SerializeField] private int _shootingEnemyStartWave = 10;
+
+    //=======Getters for references=======
     public GameObject[] GetMeleePrefabs() => _meleeEnemyPrefabs;
     public GameObject[] GetShootingPrefabs() => _shootingEnemyPrefabs;
     public int GetShootingStartWave() => _shootingEnemyStartWave;
 
 
-
+    //=======Creation of the start chunks=======
     private void Start() 
     {
         for (int i = 0; i < chunksCountOnStart; i++)
@@ -50,6 +51,8 @@ public class ChunkSpawner : MonoBehaviour
         }
 
     }
+
+    //=======Creation of the new chunks  + totalChunksSpawning counting + refreshing the Wawe count (COMPLINED WITH PROGRESSION LOGIC) + Ignoring of the start chunks=======
     public void StepOnChunk(Chunk currentChunk) 
     {
         SpawnChunk(currentChunk.transform.position + (Vector3.forward * chunksCountOnStart * chunkLenght));
@@ -61,25 +64,29 @@ public class ChunkSpawner : MonoBehaviour
             Debug.Log($"Wave {currentWave - 1} completed! Starting Wave {currentWave}!");
         }
     }
+
+    //=======Checking if the arch can be spawned=======
     public bool CanSpawnArch()
     {
         return _currentWaveArchesCount < _waveMaxArches;
     }
 
+    //=======Rising the arch count per wave=======
     public void IncrementArchCount()
     {
         _currentWaveArchesCount++;
     }
-
+    //=======Checking if the boxes can be spawned=======
     public bool CanSpawnBox()
     {
         return _currentWaveBoxesCount < _waveMaxBoxes;
     }
-
+    //=======Rising the boxes count per wave=======
     public void IncrementBoxCount()
     {
         _currentWaveBoxesCount++;
     }
+    //=======Creating new =======
     public void SpawnChunk(Vector3 spawnPosition) 
     {
         Chunk newChunk = Instantiate(_chunkPrefab, spawnPosition, Quaternion.identity, transform).GetComponent<Chunk>();
