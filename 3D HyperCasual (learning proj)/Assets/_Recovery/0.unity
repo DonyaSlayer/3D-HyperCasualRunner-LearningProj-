@@ -225,7 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChunkSpawner
   _chunkPrefab: {fileID: 6978314396396716411, guid: 10790662e1ec9b74d8d6ee860c788e4c, type: 3}
   chunksCountOnStart: 10
-  chunkLenght: 12
+  chunkLenght: 6
   totalChunksSpawned: 0
   currentWave: 1
   _chunksPerWave: 10
@@ -551,10 +551,6 @@ PrefabInstance:
     - target: {fileID: 1720534349167734928, guid: 1409cc2f8e1ab1e45b22ab1686021c7a, type: 3}
       propertyPath: m_LocalPosition.z
       value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3456528187978623673, guid: 1409cc2f8e1ab1e45b22ab1686021c7a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 3758024822092180933, guid: 1409cc2f8e1ab1e45b22ab1686021c7a, type: 3}
       propertyPath: _horizontalLimit

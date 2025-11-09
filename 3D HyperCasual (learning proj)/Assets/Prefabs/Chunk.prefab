@@ -207,15 +207,12 @@ MonoBehaviour:
   - {fileID: 9159300154669578778}
   - {fileID: 8742203651843497042}
   _prefabsToSpawn:
-  - {fileID: 7122820422276098946, guid: e20e11625a499594590add57071c3268, type: 3}
   - {fileID: 359261815065305022, guid: b99db7ac1b49d024e98b19686ccf22da, type: 3}
-  - {fileID: 7122820422276098946, guid: e20e11625a499594590add57071c3268, type: 3}
-  - {fileID: 8562345192605078703, guid: 4d4357c03591d4f4d9e613c946be51c0, type: 3}
-  - {fileID: 334877847565899276, guid: 9802f33b1e76e744dbc2afd5540d75b3, type: 3}
-  - {fileID: 6637362599902266266, guid: b9b72cf104ae948469b03bfb5a336a49, type: 3}
+  - {fileID: 2982190660374357335, guid: c6655f13331a6c8499638be49987b48c, type: 3}
+  - {fileID: 7780052190742555228, guid: 5624d1d92477aa945a2a7e6542aadb31, type: 3}
   _coinPrefab: {fileID: 5474534040632158410, guid: 84884b04a6d0ced49b37aad59fe6ff1a, type: 3}
-  _enemiesMinCount: 3
-  _enemiesMaxCount: 8
+  _enemiesBaseMinCount: 3
+  _enemiesBaseMaxCount: 9
   _enemySpawnTimer: 1
 --- !u!1 &6987797469677068741
 GameObject:
