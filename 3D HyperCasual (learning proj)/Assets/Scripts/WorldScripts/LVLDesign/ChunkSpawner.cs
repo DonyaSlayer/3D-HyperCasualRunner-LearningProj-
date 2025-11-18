@@ -8,7 +8,7 @@ public class ChunkSpawner : MonoBehaviour
     [SerializeField] private GameObject _chunkPrefab; 
     public int chunksCountOnStart; 
     public float chunkLenght;
-    public int initialEmptyChunkCount = 15; //=======Empty chunks on the start=======
+    public int initialEmptyChunkCount; //=======Empty chunks on the start=======
 
     [Header("Wave Control")]
     [Tooltip("Total chunks that has spawned or created count/current wave count/ chunks per wave count")]
@@ -33,7 +33,7 @@ public class ChunkSpawner : MonoBehaviour
 
     [SerializeField] private GameObject[] _meleeEnemyPrefabs;
     [SerializeField] private GameObject[] _shootingEnemyPrefabs; 
-    [SerializeField] private int _shootingEnemyStartWave = 10;
+    [SerializeField] private int _shootingEnemyStartWave;
 
     //=======Getters for references=======
     public GameObject[] GetMeleePrefabs() => _meleeEnemyPrefabs;

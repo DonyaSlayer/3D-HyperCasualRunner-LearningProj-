@@ -151,6 +151,18 @@ MonoBehaviour:
   _chunkPrefab: {fileID: 6978314396396716411, guid: 10790662e1ec9b74d8d6ee860c788e4c, type: 3}
   chunksCountOnStart: 8
   chunkLenght: 10
+  initialEmptyChunkCount: 11
+  totalChunksSpawned: 0
+  currentWave: 1
+  _chunksPerWave: 10
+  totalChunksCreated: 0
+  _waveMaxArches: 5
+  _waveMaxBoxes: 3
+  _meleeEnemyPrefabs:
+  - {fileID: 7122820422276098946, guid: e20e11625a499594590add57071c3268, type: 3}
+  _shootingEnemyPrefabs:
+  - {fileID: 6637362599902266266, guid: b9b72cf104ae948469b03bfb5a336a49, type: 3}
+  _shootingEnemyStartWave: 5
 --- !u!4 &202379844
 Transform:
   m_ObjectHideFlags: 0

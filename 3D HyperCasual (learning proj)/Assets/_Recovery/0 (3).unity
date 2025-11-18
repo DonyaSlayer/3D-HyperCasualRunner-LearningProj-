@@ -304,7 +304,7 @@ MonoBehaviour:
   chunkLenght: 12
   initialEmptyChunkCount: 11
   totalChunksSpawned: 0
-  currentWave: 5
+  currentWave: 1
   _chunksPerWave: 10
   totalChunksCreated: 0
   _waveMaxArches: 5
@@ -591,8 +591,8 @@ RectTransform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 106455547}
   - {fileID: 792533039}
+  - {fileID: 106455547}
   m_Father: {fileID: 1733065664}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}

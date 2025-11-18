@@ -29,14 +29,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        /* (_bulletIconImage != null)
-        {
-            _bulletIconImage.gameObject.SetActive(false);
-        }*/
-    }
-
     public void UpdateCoinCount(int newCount)
     {
         CoinCountText.text = $"Coins: {newCount}";
@@ -46,6 +38,8 @@ public class UIManager : MonoBehaviour
     {
         WaveCountText.text = $"Wawe: {newWave}";
     }
+
+
 
     public void StartBoxBuffTimer(float duration, string bulletType)
     {
