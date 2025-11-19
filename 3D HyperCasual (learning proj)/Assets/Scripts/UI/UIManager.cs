@@ -1,6 +1,7 @@
 using TMPro;
-using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -8,14 +9,24 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI WaveCountText;
     public static UIManager Instance { get; private set; }
 
-    
-    [SerializeField] private Sprite _blueBulletSprite;    
-    [SerializeField] private Sprite _greenBulletSprite;
-
     [Header("Buff Indicator")]
     [SerializeField] private GameObject _boxBuffIndicatorParent;
     [SerializeField] private Image _boxBuffFillImage;
     [SerializeField] private Image _bulletIconImage;
+    [SerializeField] private Sprite _blueBulletSprite;
+    [SerializeField] private Sprite _greenBulletSprite;
+
+    [Header("Game Over Panel")]
+    [SerializeField] private GameObject _gameOverPanel;
+    [SerializeField] private TextMeshProUGUI _finalWaveText;
+    [SerializeField] private TextMeshProUGUI _finalCoinText;
+
+    private const int _gameSceneIndex = 1;
+    private const int MainMenuSceneIndex = 0;
+
+    [Header("Game Stats")]
+    public int ñurrentCoins { get; private set; } = 0;
+    public int ñurrentWaves { get; private set; } = 0;
 
     private void Awake()
     {
@@ -31,11 +42,13 @@ public class UIManager : MonoBehaviour
 
     public void UpdateCoinCount(int newCount)
     {
+        ñurrentCoins = newCount;
         CoinCountText.text = $"Coins: {newCount}";
     }
 
     public void UpdateWaveCount(int newWave)
     {
+        ñurrentWaves = newWave;
         WaveCountText.text = $"Wawe: {newWave}";
     }
 
@@ -68,5 +81,25 @@ public class UIManager : MonoBehaviour
             yield return null;
         }
         _boxBuffIndicatorParent.SetActive(false);
+    }
+
+    public void ShowGameOver()
+    {
+        Time.timeScale = 0f;
+        _finalWaveText.text = $": {ñurrentWaves}";
+        _finalCoinText.text = $": {ñurrentCoins}";
+        _gameOverPanel.SetActive(true);
+    }
+
+    public void RetryGame()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(_gameSceneIndex);
+    }
+
+    public void GoToMainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(MainMenuSceneIndex);
     }
 }
