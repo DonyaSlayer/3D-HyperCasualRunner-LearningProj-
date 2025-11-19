@@ -28,6 +28,9 @@ public class UIManager : MonoBehaviour
     public int ñurrentCoins { get; private set; } = 0;
     public int ñurrentWaves { get; private set; } = 0;
 
+    public const string BestWaveKey = "BestWaveScore";
+    public const string BestCoinKey = "BestCoinScore";
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -86,6 +89,21 @@ public class UIManager : MonoBehaviour
     public void ShowGameOver()
     {
         Time.timeScale = 0f;
+
+        int savedBestWave = PlayerPrefs.GetInt(BestWaveKey, 0);
+        int savedBestCoin = PlayerPrefs.GetInt(BestCoinKey, 0);
+        if (ñurrentWaves > savedBestWave)
+        {
+            savedBestWave = ñurrentWaves;
+            PlayerPrefs.SetInt(BestWaveKey, savedBestWave);
+        }
+        if (ñurrentCoins > savedBestCoin)
+        {
+            savedBestCoin = ñurrentCoins;
+            PlayerPrefs.SetInt(BestCoinKey, savedBestCoin);
+        }
+        PlayerPrefs.Save();
+
         _finalWaveText.text = $": {ñurrentWaves}";
         _finalCoinText.text = $": {ñurrentCoins}";
         _gameOverPanel.SetActive(true);
@@ -101,5 +119,15 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(MainMenuSceneIndex);
+    }
+
+    public int GetBestWaveScore()
+    {
+        return PlayerPrefs.GetInt(BestWaveKey, 0);
+    }
+
+    public int GetBestCoinScore()
+    {
+        return PlayerPrefs.GetInt(BestCoinKey, 0);
     }
 }
