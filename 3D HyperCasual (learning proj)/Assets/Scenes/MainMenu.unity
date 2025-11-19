@@ -271,8 +271,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UIMainMenu
   _mainMenuPanel: {fileID: 297880782}
   _recordsPanel: {fileID: 2025739982}
-  _bestWaveDisplay: {fileID: 1662414259}
-  _bestCoinDisplay: {fileID: 642028296}
+  _bestWaveDisplay: {fileID: 642028296}
+  _bestCoinDisplay: {fileID: 1662414259}
 --- !u!1 &36404778
 GameObject:
   m_ObjectHideFlags: 0
@@ -2336,7 +2336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2025739983
 RectTransform:
   m_ObjectHideFlags: 0
