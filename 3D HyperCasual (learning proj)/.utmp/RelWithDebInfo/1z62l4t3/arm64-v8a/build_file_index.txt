@@ -1,0 +1,2 @@
+D:\GameDev\GHreps\3D-HyperCasualRunner-LearningProj-\3D HyperCasual (learning proj)\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+D:\GameDev\GHreps\3D-HyperCasualRunner-LearningProj-\3D HyperCasual (learning proj)\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt

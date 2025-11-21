@@ -1,0 +1,10 @@
+# ninja log v5
+52	2007	7854354289738393	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	450f12edf4d5863a
+28	2022	7854354289909821	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	4206982e9ce56581
+17	2071	7854354290427499	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	b2aa8da83ab42a34
+64	2111	7854354290577904	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	94d34e87fd2200f8
+9	2150	7854354291285073	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	b8380192ada8ea5e
+76	2425	7854354294056440	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	1970824a12afcb1b
+40	2448	7854354294291764	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	4e05e063a1237171
+0	2586	7854354295629144	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	1b5f3d1ace4ca10
+2587	2680	7854354296640117	D:/GameDev/GHreps/3D-HyperCasualRunner-LearningProj-/3D HyperCasual (learning proj)/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1z62l4t3/obj/arm64-v8a/libgame.so	a014b26a98d10987
