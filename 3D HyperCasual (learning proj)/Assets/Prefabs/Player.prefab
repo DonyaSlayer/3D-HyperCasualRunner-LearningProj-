@@ -4854,6 +4854,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   _forwardSpeed: 3
   _horizontalSpeed: 5
+  _horizontalSpeedPointer: 0
   _horizontalLimit: 1.8
   _animator: {fileID: 6012409291286120501}
   _moveLeft: 97
@@ -4924,6 +4925,10 @@ MonoBehaviour:
   _healthRegeneration: 0.01
   _damageCooldown: 1
   _healthFillImage: {fileID: 0}
+  _animator: {fileID: 0}
+  _renderer: {fileID: 0}
+  _damageColor: {fileID: 0}
+  flashDuration: 0.1
 --- !u!1 &7514550058313849748
 GameObject:
   m_ObjectHideFlags: 0

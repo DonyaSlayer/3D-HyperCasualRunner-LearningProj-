@@ -1064,6 +1064,7 @@ MonoBehaviour:
   _gameOverPanel: {fileID: 576977246}
   _finalWaveText: {fileID: 330187805}
   _finalCoinText: {fileID: 474123255}
+  _gameOverCanvasGroup: {fileID: 576977248}
 --- !u!4 &346725907
 Transform:
   m_ObjectHideFlags: 0
@@ -1426,13 +1427,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 576977247}
+  - component: {fileID: 576977248}
   m_Layer: 5
   m_Name: GameOverCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &576977247
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1455,6 +1457,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &576977248
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576977246}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &670135884
 GameObject:
   m_ObjectHideFlags: 0
@@ -1994,6 +2008,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1007933323}
   m_CullTransparentMesh: 1
+--- !u!95 &1014573326 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6012409291286120501, guid: 1409cc2f8e1ab1e45b22ab1686021c7a, type: 3}
+  m_PrefabInstance: {fileID: 6309623684742736266}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1076460787
 GameObject:
   m_ObjectHideFlags: 0
@@ -2978,6 +2997,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -4
       objectReference: {fileID: 0}
+    - target: {fileID: 403985095290963960, guid: 1409cc2f8e1ab1e45b22ab1686021c7a, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 1014573326}
+    - target: {fileID: 403985095290963960, guid: 1409cc2f8e1ab1e45b22ab1686021c7a, type: 3}
+      propertyPath: _damageColor
+      value: 
+      objectReference: {fileID: 2100000, guid: e4ccef717716ffd41a149d26210ea944, type: 2}
     - target: {fileID: 403985095290963960, guid: 1409cc2f8e1ab1e45b22ab1686021c7a, type: 3}
       propertyPath: _healthFillImage
       value: 

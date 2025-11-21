@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
 
 public class UIManager : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _gameOverPanel;
     [SerializeField] private TextMeshProUGUI _finalWaveText;
     [SerializeField] private TextMeshProUGUI _finalCoinText;
+    [SerializeField] private CanvasGroup _gameOverCanvasGroup;
 
     private const int _gameSceneIndex = 1;
     private const int MainMenuSceneIndex = 0;
@@ -43,6 +45,14 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        if (_gameOverCanvasGroup != null)
+        {
+            _gameOverCanvasGroup.alpha = 0f;
+        }
+    }
+
     public void UpdateCoinCount(int newCount)
     {
         ñurrentCoins = newCount;
@@ -56,6 +66,12 @@ public class UIManager : MonoBehaviour
     }
 
 
+    public void ShowGameOverPanelSmoothly()
+    {
+        UpdateGameOverStats();
+        StopAllCoroutines();
+        StartCoroutine(FadeInGameOverPanel(3f));
+    }
 
     public void StartBoxBuffTimer(float duration, string bulletType)
     {
@@ -86,12 +102,30 @@ public class UIManager : MonoBehaviour
         _boxBuffIndicatorParent.SetActive(false);
     }
 
-    public void ShowGameOver()
+    private IEnumerator FadeInGameOverPanel(float duration)
     {
+        if (_gameOverCanvasGroup == null)
+        {
+            _gameOverPanel.SetActive(true); 
+            Time.timeScale = 0f;
+            yield break;
+        }
+        _gameOverPanel.SetActive(true);
+        float startTime = Time.unscaledTime; 
+        while (_gameOverCanvasGroup.alpha < 1f)
+        {
+            float t = (Time.unscaledTime - startTime) / duration;
+            _gameOverCanvasGroup.alpha = Mathf.Lerp(0f, 1f, t);
+            yield return null;
+        }
+        _gameOverCanvasGroup.alpha = 1f;
         Time.timeScale = 0f;
-
+    }
+    private void UpdateGameOverStats()
+    {
         int savedBestWave = PlayerPrefs.GetInt(BestWaveKey, 0);
         int savedBestCoin = PlayerPrefs.GetInt(BestCoinKey, 0);
+
         if (ñurrentWaves > savedBestWave)
         {
             savedBestWave = ñurrentWaves;
@@ -103,10 +137,8 @@ public class UIManager : MonoBehaviour
             PlayerPrefs.SetInt(BestCoinKey, savedBestCoin);
         }
         PlayerPrefs.Save();
-
         _finalWaveText.text = $": {ñurrentWaves}";
         _finalCoinText.text = $": {ñurrentCoins}";
-        _gameOverPanel.SetActive(true);
     }
 
     public void RetryGame()

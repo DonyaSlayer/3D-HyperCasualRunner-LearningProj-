@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Camera _camera;
 
+    private bool _canMove = true;
+
     private void Start()
     {
         _targetPosition = transform.position;
@@ -28,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (!_canMove)
+            return;
         MoveForward();
         HandleKeybordInput();
         HandlePointerInput();
@@ -89,10 +93,12 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-
-
     private void MoveForward()
     {
         transform.Translate(Vector3.forward * _forwardSpeed * Time.deltaTime);
+    }
+    public void StopMoving()
+    {
+        _canMove = false;
     }
 }
