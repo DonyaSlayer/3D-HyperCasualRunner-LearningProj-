@@ -17,9 +17,16 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<PlayerHealth>(out PlayerHealth playerHealth))
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Soldier"))
         {
-            playerHealth.Damage(_damage);
+            if (TeamController.instance.soldiers.Count > 0)
+            {
+                TeamController.instance.RemoveSoldier();
+            }
+            else
+            {
+                other.gameObject.GetComponent<PlayerHealth>().Damage(_damage);
+            }
             Destroy(gameObject);
         }
     }
