@@ -33,6 +33,10 @@ public class UIManager : MonoBehaviour
     public const string BestWaveKey = "BestWaveScore";
     public const string BestCoinKey = "BestCoinScore";
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip _gameOverClip;
+    [SerializeField] private AudioSource _sfxSource;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -66,8 +70,17 @@ public class UIManager : MonoBehaviour
     }
 
 
-    public void ShowGameOverPanelSmoothly()
+    public void ShowGameOverPanelSmoothly(AudioSource musicSourceToStop)
     {
+        if (musicSourceToStop != null && musicSourceToStop.isPlaying)
+        {
+            musicSourceToStop.Stop();
+        }
+
+        if (_sfxSource != null && _gameOverClip != null)
+        {
+            _sfxSource.PlayOneShot(_gameOverClip);
+        }
         UpdateGameOverStats();
         StopAllCoroutines();
         StartCoroutine(FadeInGameOverPanel(3f));

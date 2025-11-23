@@ -28,6 +28,9 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float flashDuration = 0.1f;
     private Material[] _originalMaterials;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource _gameMusicSource;
+
     private void Start()
     {
         if (_renderers == null || _renderers.Length == 0)
@@ -91,7 +94,7 @@ public class PlayerHealth : MonoBehaviour
         if (TryGetComponent<Rigidbody>(out Rigidbody rb))
 
             rb.isKinematic = true;
-        StartCoroutine(ShowGameOverWithDelay(3.0f));
+        StartCoroutine(ShowGameOverWithDelay(3.0f, _gameMusicSource));
     }
 
     private IEnumerator DamageCooldown()
@@ -100,12 +103,12 @@ public class PlayerHealth : MonoBehaviour
         _canTakeDamage = true;
         _canRegenerate = true;
     }
-    private IEnumerator ShowGameOverWithDelay(float delay)
+    private IEnumerator ShowGameOverWithDelay(float delay, AudioSource musicSourceToStop)
     {
         yield return new WaitForSeconds(delay);
         if (UIManager.Instance != null)
         {
-            UIManager.Instance.ShowGameOverPanelSmoothly();
+            UIManager.Instance.ShowGameOverPanelSmoothly(musicSourceToStop);
         }
         gameObject.SetActive(false);
     }

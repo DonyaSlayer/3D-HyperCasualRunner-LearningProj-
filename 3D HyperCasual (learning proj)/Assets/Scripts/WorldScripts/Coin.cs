@@ -8,6 +8,7 @@ public class Coin : MonoBehaviour
     public float minSpeed;
     public float maxSpeed;
     public float accelerationDistance;
+    [SerializeField] private AudioClip _collectSound;
 
     private Transform target;
 
@@ -63,6 +64,10 @@ public class Coin : MonoBehaviour
         if (other.CompareTag("Player") || other.CompareTag("Soldier"))
         {
             Destroy(gameObject);
+            if (_collectSound != null)
+            {
+                AudioSource.PlayClipAtPoint(_collectSound, transform.position, 1.0f);
+            }
             if (TeamController.instance != null)
             {
                 TeamController.instance.coinCount += 1;

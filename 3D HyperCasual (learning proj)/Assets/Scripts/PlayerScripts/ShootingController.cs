@@ -9,6 +9,11 @@ public class ShootingController : MonoBehaviour
 
     public Animator animator;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource _shootingAudioSource;
+    [SerializeField] private AudioClip _shootClip;
+    private AudioClip _currentShootClip;
+
     private Coroutine _shootingTimer;
 
     public void StartShooting()
@@ -25,12 +30,23 @@ public class ShootingController : MonoBehaviour
         _shootingTimer = null;
         animator.SetBool("Shooting", false);
     }
+    public void UpdateBulletSettings(AudioClip newShootClip)
+    {
+        _currentShootClip = newShootClip;
+    }
 
     private IEnumerator ShootingTimer()
     {
         while (true)
         { 
             Instantiate(bulletPrefab, _firingPoint.position, Quaternion.identity, null);
+            AudioClip clipToPlay = (_currentShootClip != null)
+                                   ? _currentShootClip
+                                   : _shootClip;
+            if (_shootingAudioSource != null && clipToPlay != null)
+            {
+                _shootingAudioSource.PlayOneShot(clipToPlay, 1f);
+            }   
             yield return new WaitForSeconds(_reloadingTime);
         }
     }

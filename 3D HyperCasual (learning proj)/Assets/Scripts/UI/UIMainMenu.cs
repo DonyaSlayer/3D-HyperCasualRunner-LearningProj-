@@ -12,11 +12,15 @@ public class UIMainMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _bestWaveDisplay;
     [SerializeField] private TextMeshProUGUI _bestCoinDisplay;
 
+    [SerializeField] private AudioSource _menuMusicSource;
+
     private void Start()
     {
         if (_mainMenuPanel != null) _mainMenuPanel.SetActive(true);
         if (_recordsPanel != null) _recordsPanel.SetActive(false);
+        if (_menuMusicSource != null) _menuMusicSource.Play();
     }
+        
 
     public void PlayGame()
     {

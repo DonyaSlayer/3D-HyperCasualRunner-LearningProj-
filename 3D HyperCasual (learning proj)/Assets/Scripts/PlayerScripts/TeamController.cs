@@ -16,6 +16,7 @@ public class TeamController : MonoBehaviour
     public GameObject bulletDefaultPrefab;
     public static TeamController instance;
     private Coroutine _bulletsTimer;
+    private AudioClip _currentShootClip;
 
 
     [Header("Team Variables")]
@@ -26,7 +27,6 @@ public class TeamController : MonoBehaviour
 
     [Header("Collectable Variables")]
     public int coinCount;
-
 
     private void Awake()
     {
@@ -97,8 +97,9 @@ public class TeamController : MonoBehaviour
             _playersShootingController.StopShooting();
         }
     }
-    public void SetBullets (GameObject newBullet, float timer, string bulletType)
+    public void SetBullets (GameObject newBullet, float timer, string bulletType, AudioClip shootClip)
     {
+        _currentShootClip = shootClip;
         bulletCurrentPrefab = newBullet;
         SetBulletToTeam();
         if (_bulletsTimer != null)
@@ -114,6 +115,7 @@ public class TeamController : MonoBehaviour
     IEnumerator BulletTimer(float timer) 
     {
         yield return new WaitForSeconds(timer);
+        _currentShootClip = null;
         bulletCurrentPrefab = bulletDefaultPrefab;
         SetBulletToTeam();
     }
@@ -123,7 +125,9 @@ public class TeamController : MonoBehaviour
         for (int i = 0; i < soldiers.Count; i++)
         {
             soldiers[i].shootingController.bulletPrefab = bulletCurrentPrefab;
+            soldiers[i].shootingController.UpdateBulletSettings(_currentShootClip);
         }
         _playersShootingController.bulletPrefab = bulletCurrentPrefab;
+        _playersShootingController.UpdateBulletSettings(_currentShootClip);
     }
 }

@@ -164,3 +164,4 @@ MonoBehaviour:
   minSpeed: 2
   maxSpeed: 10
   accelerationDistance: 2
+  _collectSound: {fileID: 8300000, guid: 2abec64a64e52c84c9fde59387c8f8bb, type: 3}

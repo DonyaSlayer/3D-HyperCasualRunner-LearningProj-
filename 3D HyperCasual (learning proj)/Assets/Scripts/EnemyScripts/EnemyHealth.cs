@@ -15,6 +15,9 @@ public class EnemyHealth : MonoBehaviour
 
     private Material _originalMaterial;
 
+    [Header("Audio")] 
+    [SerializeField] private AudioClip _deathSoundClip;
+
     private void Start()
     {
         if (_renderer == null)
@@ -49,6 +52,10 @@ public class EnemyHealth : MonoBehaviour
 
     private IEnumerator DeathSequence()
     {
+        if (_deathSoundClip != null)
+        {
+            AudioSource.PlayClipAtPoint(_deathSoundClip, transform.position, 1.0f);
+        }
         _animator.Play("ZombieDeath");
         if (TryGetComponent<EnemyMovement>(out EnemyMovement move))
             move.StopMoving();

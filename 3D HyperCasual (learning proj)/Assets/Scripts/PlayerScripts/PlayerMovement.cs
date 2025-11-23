@@ -18,6 +18,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private KeyCode _moveRight;
     private Vector3 _targetPosition;
 
+    [Header("Audio")] 
+    [SerializeField] private AudioSource _movementAudio;
+
     private Camera _camera;
 
     private bool _canMove = true;
@@ -25,13 +28,21 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         _targetPosition = transform.position;
-        _camera = Camera.main;  
+        _camera = Camera.main;
+        if (_movementAudio == null)
+            _movementAudio = GetComponent<AudioSource>();
     }
 
     private void Update()
     {
         if (!_canMove)
+        {
+            if (_movementAudio != null && _movementAudio.isPlaying)
+                _movementAudio.Stop();
             return;
+        }
+        if (_movementAudio != null && !_movementAudio.isPlaying)
+            _movementAudio.Play();
         MoveForward();
         HandleKeybordInput();
         HandlePointerInput();
