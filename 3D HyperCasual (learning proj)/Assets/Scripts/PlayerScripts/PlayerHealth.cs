@@ -84,16 +84,19 @@ public class PlayerHealth : MonoBehaviour
         _animator.SetBool("IsDead", true);
         _isDead = true;
         if (TryGetComponent<PlayerMovement>(out PlayerMovement move))
-
             move.StopMoving();
 
-        if (TryGetComponent<Collider>(out Collider col))
+        if (TeamController.instance != null)
+        {
+            TeamController.instance.StopAllEnemiesMovementAndAudio();
+        }
 
+        if (TryGetComponent<Collider>(out Collider col))
             col.enabled = false;
 
         if (TryGetComponent<Rigidbody>(out Rigidbody rb))
-
             rb.isKinematic = true;
+
         StartCoroutine(ShowGameOverWithDelay(3.0f, _gameMusicSource));
     }
 

@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 
 public class UIMainMenu : MonoBehaviour
@@ -13,7 +14,8 @@ public class UIMainMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _bestCoinDisplay;
 
     [SerializeField] private AudioSource _menuMusicSource;
-
+    [SerializeField] private AudioSource _sfxSource;
+    [SerializeField] private AudioClip _clickClip;
     private void Start()
     {
         if (_mainMenuPanel != null) _mainMenuPanel.SetActive(true);
@@ -32,6 +34,14 @@ public class UIMainMenu : MonoBehaviour
         Debug.Log("Quit is succsesfull");
     }
 
+    private void PlayClickSound()
+    {
+        if (_sfxSource != null && _clickClip != null)
+        {
+            _sfxSource.PlayOneShot(_clickClip, 1.0f);
+        }
+    }
+
     public void OpenRecordsMenu()
     {
         if (_recordsPanel != null) _recordsPanel.SetActive(true);
@@ -39,6 +49,7 @@ public class UIMainMenu : MonoBehaviour
     }
     public void CloseRecordsMenu()
     {
+        PlayClickSound();
         if (_recordsPanel != null) _recordsPanel.SetActive(false);
     }
     private void DisplayBestScores()

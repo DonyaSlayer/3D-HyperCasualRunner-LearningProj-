@@ -660,7 +660,7 @@ MonoBehaviour:
   chunkLenght: 10
   initialEmptyChunkCount: 11
   totalChunksSpawned: 0
-  currentWave: 6
+  currentWave: 1
   _chunksPerWave: 10
   totalChunksCreated: 0
   _waveMaxArches: 5

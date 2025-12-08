@@ -112,6 +112,19 @@ public class TeamController : MonoBehaviour
             UIManager.Instance.StartBoxBuffTimer(timer, bulletType);
         }
     }
+
+    public void StopAllEnemiesMovementAndAudio()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            if (enemy.TryGetComponent<EnemyMovement>(out EnemyMovement moveComponent))
+            {
+                moveComponent.StopMoving();
+            }
+        }
+    }
+
     IEnumerator BulletTimer(float timer) 
     {
         yield return new WaitForSeconds(timer);
